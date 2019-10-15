@@ -23,9 +23,38 @@ export default class SortingVisualizer extends Component {
   }
 
   mergeSort() {
-    let arr = this.state.array.slice();
-    console.log(arr);
-    console.log(algo.mergeSort(arr));
+    const animations = algo.mergeSort(this.state.array);
+    console.log(this.state.array);
+    // console.log(animations);
+    const newAnimations = [];
+    for (const animation of animations) {
+      console.log(animation.swap);
+      newAnimations.push(animation.comparison);
+      newAnimations.push(animation.comparison);
+      newAnimations.push(animation.swap);
+    }
+    // console.log(animations);
+    for (let i = 0; i < newAnimations.length; i++) {
+      const arrayBars = document.getElementsByClassName("array-bar");
+      const isColorChange = i % 3 !== 2;
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = newAnimations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? "red" : "aqua";
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * 2);
+      } else {
+        setTimeout(() => {
+          const [barOneIdx, newHeight] = newAnimations[i];
+          // console.log(newHeight);
+          const barOneStyle = arrayBars[barOneIdx].style;
+          barOneStyle.height = `${this.state.array[newHeight] / 15}vh`;
+        }, i * 2);
+      }
+    }
   }
   quickSort() {}
   heapSort() {}
