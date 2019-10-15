@@ -1,0 +1,19 @@
+.array-container {
+  /* position: absolute; */
+  flex: 1;
+  margin: 0 2%;
+  margin-top: 1vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.array-bar {
+  width: 2px;
+  background-color: chocolate;
+  display: inline-block;
+  margin: 0 1px;
+  flex: 1;
+}
