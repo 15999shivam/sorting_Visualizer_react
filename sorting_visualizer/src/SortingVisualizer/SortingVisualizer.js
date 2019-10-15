@@ -30,6 +30,19 @@ export default class SortingVisualizer extends Component {
   quickSort() {}
   heapSort() {}
   bubbleSort() {}
+  testAlgorithms() {
+    for (let i = 0; i < 10000; i++) {
+      const array = [];
+      const length = getRandomNumber(1, 1000);
+      for (let j = 0; j < length; j++) {
+        array.push(getRandomNumber(-1000, 1000));
+      }
+      const javaScriptSortArray = array.slice().sort((a, b) => a - b);
+      const mergeSortArray = algo.mergeSort(array.slice());
+
+      console.log(areArrayEqual(javaScriptSortArray, mergeSortArray));
+    }
+  }
 
   render() {
     const { array } = this.state;
@@ -51,6 +64,7 @@ export default class SortingVisualizer extends Component {
         <button onClick={() => this.quickSort()}>Quick Sort</button>
         <button onClick={() => this.heapSort()}>Heap Sort</button>
         <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+        <button onClick={() => this.testAlgorithms()}>Test algorithms</button>
       </div>
     );
   }
@@ -60,4 +74,15 @@ function getRandomNumber(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function areArrayEqual(arrayOne, arrayTwo) {
+  if (arrayOne.length !== arrayTwo.length) return false;
+  for (let i = 0; i < arrayOne.length; i++) {
+    if (arrayOne[i] !== arrayTwo[i]) {
+      console.log(arrayOne[i], "  ", arrayTwo[i]);
+      return false;
+    }
+  }
+  return true;
 }
