@@ -1,13 +1,22 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
 .array-container {
   /* position: absolute; */
-  flex: 1;
+  height: 70vh;
+  flex: 5;
   margin: 0 2%;
   margin-top: 1vh;
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: flex-end;
-  align-self: flex-end;
+  align-self: stretch;
 }
 
 .array-bar {
@@ -17,3 +26,29 @@
   margin: 0 1px;
   flex: 1;
 }
+
+.inputs {
+  flex: 1;
+}
+.buttons {
+  flex: 1;
+}
+
+/* .array-container {
+  
+  flex: 1;
+  margin: 0 2%;
+  margin-top: 1vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.array-bar {
+  width: 1px;
+  background-color: forestgreen;
+  display: inline-block;
+  
+} */

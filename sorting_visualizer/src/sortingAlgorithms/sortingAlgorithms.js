@@ -29,7 +29,7 @@ export function mergeSort(array) {
   //   console.log(
   mergeSortHelper(array, 0, array.length - 1, auxilaryArray, animations);
   //   );
-  console.log(animations);
+  // console.log(animations);
   return animations;
 }
 
