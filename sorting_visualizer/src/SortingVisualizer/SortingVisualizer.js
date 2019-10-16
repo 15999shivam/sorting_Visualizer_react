@@ -24,7 +24,7 @@ export default class SortingVisualizer extends Component {
 
   mergeSort() {
     const animations = algo.mergeSort(this.state.array);
-    console.log(this.state.array);
+    // console.log(this.state.array);
     // console.log(animations);
     const newAnimations = [];
     for (const animation of animations) {
@@ -51,7 +51,7 @@ export default class SortingVisualizer extends Component {
           const [barOneIdx, newHeight] = newAnimations[i];
           // console.log(newHeight);
           const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${this.state.array[newHeight] / 15}vh`;
+          barOneStyle.height = `${newHeight / 15}vh`;
         }, i * 2);
       }
     }

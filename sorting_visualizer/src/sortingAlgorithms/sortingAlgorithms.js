@@ -70,10 +70,10 @@ function doMerge(
     const animation = {};
     animation.comparison = [i, j];
     if (auxilaryArray[i] <= auxilaryArray[j]) {
-      animation.swap = [k, i];
+      animation.swap = [k, auxilaryArray[i]];
       mainArray[k++] = auxilaryArray[i++];
     } else {
-      animation.swap = [k, j];
+      animation.swap = [k, auxilaryArray[j]];
       mainArray[k++] = auxilaryArray[j++];
     }
     animations.push(animation);
@@ -82,7 +82,7 @@ function doMerge(
   while (i <= middleIdx) {
     animations.push({
       comparison: [i, i],
-      swap: [k, i]
+      swap: [k, auxilaryArray[i]]
     });
     mainArray[k++] = auxilaryArray[i++];
     //console.log(animations.swap);
@@ -91,7 +91,7 @@ function doMerge(
   while (j <= endIdx) {
     animations.push({
       comparison: [j, j],
-      swap: [k, j]
+      swap: [k, auxilaryArray[j]]
     });
     mainArray[k++] = auxilaryArray[j++];
     //console.log(animations.swap);
